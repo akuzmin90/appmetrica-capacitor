@@ -62,7 +62,9 @@ npx cap sync
 ### Конфигурация/Активация
 
 ```ts
-import { AppMetrica } from 'capacitor-appmetrica-plugin';
+import { Plugins } from '@capacitor/core';
+
+const { AppMetricaPlugin } = Plugins;
 
 AppMetrica.activate({
   apiKey: "<API key приложения>",

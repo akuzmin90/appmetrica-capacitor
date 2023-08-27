@@ -1,0 +1,984 @@
+{
+  "api": {
+    "name": "AppMetricaPlugin",
+    "slug": "appmetricaplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "activate",
+        "signature": "(config: YAMConfig) => Promise<void>",
+        "parameters": [
+          {
+            "name": "config",
+            "docs": "",
+            "type": "YAMConfig"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "config"
+          }
+        ],
+        "docs": "Активация метрики",
+        "complexTypes": [
+          "YAMConfig"
+        ],
+        "slug": "activate"
+      },
+      {
+        "name": "reportEvent",
+        "signature": "(options: YAMReportEventOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "YAMReportEventOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          }
+        ],
+        "docs": "Отправка простого события",
+        "complexTypes": [
+          "YAMReportEventOptions"
+        ],
+        "slug": "reportevent"
+      },
+      {
+        "name": "reportError",
+        "signature": "(options: YAMReportErrorOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "YAMReportErrorOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          }
+        ],
+        "docs": "Отправит событие ошибки",
+        "complexTypes": [
+          "YAMReportErrorOptions"
+        ],
+        "slug": "reporterror"
+      },
+      {
+        "name": "setLocation",
+        "signature": "(location: YAMLocation) => Promise<void>",
+        "parameters": [
+          {
+            "name": "location",
+            "docs": "",
+            "type": "YAMLocation"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "location"
+          }
+        ],
+        "docs": "Сообщить геопозицию",
+        "complexTypes": [
+          "YAMLocation"
+        ],
+        "slug": "setlocation"
+      },
+      {
+        "name": "setLocationTracking",
+        "signature": "(options: { enabled: boolean; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ enabled: boolean; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          }
+        ],
+        "docs": "Вкл/выкл отслеживание местоположения",
+        "complexTypes": [],
+        "slug": "setlocationtracking"
+      },
+      {
+        "name": "showScreenEvent",
+        "signature": "(screen: ECommerceScreen) => Promise<void>",
+        "parameters": [
+          {
+            "name": "screen",
+            "docs": "",
+            "type": "ECommerceScreen"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "screen"
+          }
+        ],
+        "docs": "eCommerce: Открытие страницы",
+        "complexTypes": [
+          "ECommerceScreen"
+        ],
+        "slug": "showscreenevent"
+      },
+      {
+        "name": "showProductCardEvent",
+        "signature": "(options: YAMShowProductCardEventOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "YAMShowProductCardEventOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          }
+        ],
+        "docs": "eCommerce: Просмотр карточки товара",
+        "complexTypes": [
+          "YAMShowProductCardEventOptions"
+        ],
+        "slug": "showproductcardevent"
+      },
+      {
+        "name": "showProductDetailsEvent",
+        "signature": "(options: YAMShowProductDetailsEventOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "YAMShowProductDetailsEventOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options"
+          }
+        ],
+        "docs": "eCommerce: Просмотр страницы товара",
+        "complexTypes": [
+          "YAMShowProductDetailsEventOptions"
+        ],
+        "slug": "showproductdetailsevent"
+      },
+      {
+        "name": "addCartItemEvent",
+        "signature": "(cartItem: ECommerceCartItem) => Promise<void>",
+        "parameters": [
+          {
+            "name": "cartItem",
+            "docs": "",
+            "type": "ECommerceCartItem"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "cartItem"
+          }
+        ],
+        "docs": "eCommerce: Добавление товара в корзину",
+        "complexTypes": [
+          "ECommerceCartItem"
+        ],
+        "slug": "addcartitemevent"
+      },
+      {
+        "name": "removeCartItemEvent",
+        "signature": "(cartItem: ECommerceCartItem) => Promise<void>",
+        "parameters": [
+          {
+            "name": "cartItem",
+            "docs": "",
+            "type": "ECommerceCartItem"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "cartItem"
+          }
+        ],
+        "docs": "eCommerce: Удаление товара из корзины",
+        "complexTypes": [
+          "ECommerceCartItem"
+        ],
+        "slug": "removecartitemevent"
+      },
+      {
+        "name": "beginCheckoutEvent",
+        "signature": "(order: ECommerceOrder) => Promise<void>",
+        "parameters": [
+          {
+            "name": "order",
+            "docs": "",
+            "type": "ECommerceOrder"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "order"
+          }
+        ],
+        "docs": "eCommerce: Начало оформления заказа",
+        "complexTypes": [
+          "ECommerceOrder"
+        ],
+        "slug": "begincheckoutevent"
+      },
+      {
+        "name": "purchaseEvent",
+        "signature": "(order: ECommerceOrder) => Promise<void>",
+        "parameters": [
+          {
+            "name": "order",
+            "docs": "",
+            "type": "ECommerceOrder"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "order"
+          }
+        ],
+        "docs": "eCommerce: Завершение оформления заказа",
+        "complexTypes": [
+          "ECommerceOrder"
+        ],
+        "slug": "purchaseevent"
+      },
+      {
+        "name": "setUserProfileId",
+        "signature": "(userProfileId: YAMUserProfileId) => Promise<void>",
+        "parameters": [
+          {
+            "name": "userProfileId",
+            "docs": "",
+            "type": "YAMUserProfileId"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "userProfileId"
+          }
+        ],
+        "docs": "User Profile: Отправка идентификатора профиля",
+        "complexTypes": [
+          "YAMUserProfileId"
+        ],
+        "slug": "setuserprofileid"
+      },
+      {
+        "name": "reportUserProfile",
+        "signature": "(userProfile: YAMUserProfile) => Promise<void>",
+        "parameters": [
+          {
+            "name": "userProfile",
+            "docs": "",
+            "type": "YAMUserProfile"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "userProfile"
+          }
+        ],
+        "docs": "User Profile: Отправка атрибутов профиля",
+        "complexTypes": [
+          "YAMUserProfile"
+        ],
+        "slug": "reportuserprofile"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "YAMConfig",
+      "slug": "yamconfig",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "apiKey",
+          "tags": [],
+          "docs": "API key приложения",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "appVersion",
+          "tags": [],
+          "docs": "Версия приложения",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "handleFirstActivationAsUpdate",
+          "tags": [],
+          "docs": "Определяет первый запуск приложения как обновление",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "locationTracking",
+          "tags": [],
+          "docs": "Включает/отключает отправку информации о местоположении устройства",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "sessionTimeout",
+          "tags": [],
+          "docs": "Задает длительность тайм-аута сессии в секундах",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "crashReporting",
+          "tags": [],
+          "docs": "Сбор и отправка информации об аварийных остановках приложения",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "nativeCrashReporting",
+          "tags": [],
+          "docs": "Сбор и отправка информации об нативных аварийных остановках приложения (по умолчанию активен)\nТолько Android!",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "logs",
+          "tags": [],
+          "docs": "Включает/отключает логирование работы библиотеки",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "location",
+          "tags": [],
+          "docs": "Устанавливает собственную информацию о местоположении устройства",
+          "complexTypes": [
+            "YAMLocation"
+          ],
+          "type": "YAMLocation"
+        }
+      ]
+    },
+    {
+      "name": "YAMLocation",
+      "slug": "yamlocation",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "latitude",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "longitude",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "altitude",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "accuracy",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "vAccuracy",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "hAccuracy",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "course",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "speed",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "timestamp",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        }
+      ]
+    },
+    {
+      "name": "YAMReportEventOptions",
+      "slug": "yamreporteventoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "params",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "YAMParams"
+          ],
+          "type": "YAMParams"
+        }
+      ]
+    },
+    {
+      "name": "YAMParams",
+      "slug": "yamparams",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "YAMReportErrorOptions",
+      "slug": "yamreporterroroptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "group",
+          "tags": [],
+          "docs": "Идентификатор группы",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "tags": [],
+          "docs": "Сообщение ошибки",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "parameters",
+          "tags": [],
+          "docs": "Дополнительные параметры",
+          "complexTypes": [],
+          "type": "{ [ptop: string]: string; } | undefined"
+        }
+      ]
+    },
+    {
+      "name": "ECommerceScreen",
+      "slug": "ecommercescreen",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "tags": [],
+          "docs": "Название экрана. Допустимые размеры: до 100 символов",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "searchQuery",
+          "tags": [],
+          "docs": "Поисковый запрос. Допустимый размер: до 1000 символов",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "сategoriesPath",
+          "tags": [],
+          "docs": "Путь к экрану по категориям.\n\nДопустимые размеры:\n- до 10 элементов;\n- размер одного элемента до 100 символов.",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        },
+        {
+          "name": "payload",
+          "tags": [],
+          "docs": "Дополнительная информация об экране.\n\nДопустимые размеры:\n- общий размер payload: до 20 КБ;\n- размер key: до 100 символов;\n- размер value: до 1000 символов.",
+          "complexTypes": [
+            "ECommercePayload"
+          ],
+          "type": "ECommercePayload"
+        }
+      ]
+    },
+    {
+      "name": "YAMShowProductCardEventOptions",
+      "slug": "yamshowproductcardeventoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "product",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ECommerceProduct"
+          ],
+          "type": "ECommerceProduct"
+        },
+        {
+          "name": "screen",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ECommerceScreen"
+          ],
+          "type": "ECommerceScreen"
+        }
+      ]
+    },
+    {
+      "name": "ECommerceProduct",
+      "slug": "ecommerceproduct",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "sku",
+          "tags": [],
+          "docs": "Артикул товара. Допустимый размер: до 100 символов.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "tags": [],
+          "docs": "Название товара. Допустимый размер: до 1000 символов.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "actualPrice",
+          "tags": [],
+          "docs": "Фактическая цена товара — цена после применения всех скидок и промокодов.",
+          "complexTypes": [
+            "ECommercePrice"
+          ],
+          "type": "ECommercePrice"
+        },
+        {
+          "name": "originalPrice",
+          "tags": [],
+          "docs": "Первоначальная цена товара",
+          "complexTypes": [
+            "ECommercePrice"
+          ],
+          "type": "ECommercePrice"
+        },
+        {
+          "name": "categoriesPath",
+          "tags": [],
+          "docs": "Путь к товару по категориям.\nДопустимые размеры:\n- до 10 элементов;\n- размер одного элемента до 100 символов.",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        },
+        {
+          "name": "promocodes",
+          "tags": [],
+          "docs": "Список промокодов, которые применяются к товару.\nДопустимые размеры:\n- до 20 элементов;\n- длина промокода до 100 символов.",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        },
+        {
+          "name": "payload",
+          "tags": [],
+          "docs": "Дополнительная информация о товаре.\n\nДопустимые размеры:\n- общий размер payload: до 20 КБ;\n- размер key: до 100 символов;\n- размер value: до 1000 символов.",
+          "complexTypes": [
+            "ECommercePayload"
+          ],
+          "type": "ECommercePayload"
+        }
+      ]
+    },
+    {
+      "name": "ECommercePrice",
+      "slug": "ecommerceprice",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "fiat",
+          "tags": [],
+          "docs": "Стоимость в фиатных деньгах",
+          "complexTypes": [
+            "ECommerceAmount"
+          ],
+          "type": "ECommerceAmount"
+        },
+        {
+          "name": "internalComponents",
+          "tags": [],
+          "docs": "Стоимость внутренних компонентов — суммы во внутренней валюте.\nДопустимый размер: до 30 элементов",
+          "complexTypes": [
+            "ECommerceAmount"
+          ],
+          "type": "ECommerceAmount[] | undefined"
+        }
+      ]
+    },
+    {
+      "name": "YAMShowProductDetailsEventOptions",
+      "slug": "yamshowproductdetailseventoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "product",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ECommerceProduct"
+          ],
+          "type": "ECommerceProduct"
+        },
+        {
+          "name": "referrer",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ECommerceReferrer"
+          ],
+          "type": "ECommerceReferrer"
+        }
+      ]
+    },
+    {
+      "name": "ECommerceReferrer",
+      "slug": "ecommercereferrer",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "type",
+          "tags": [],
+          "docs": "Тип источника перехода — тип объекта, с которого выполняется переход.\nНапример: «button», «banner», «href».\nДопустимый размер: до 100 символов.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "identifier",
+          "tags": [],
+          "docs": "Идентификатор источника перехода. Допустимый размер: до 2048 символов",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "screen",
+          "tags": [],
+          "docs": "Экран источника перехода — экран, с которого выполняется переход",
+          "complexTypes": [
+            "ECommerceScreen"
+          ],
+          "type": "ECommerceScreen"
+        }
+      ]
+    },
+    {
+      "name": "ECommerceCartItem",
+      "slug": "ecommercecartitem",
+      "docs": "Объект с информацией о товаре в корзине.",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "product",
+          "tags": [],
+          "docs": "Товар",
+          "complexTypes": [
+            "ECommerceProduct"
+          ],
+          "type": "ECommerceProduct"
+        },
+        {
+          "name": "revenue",
+          "tags": [],
+          "docs": "Общая цена товара в корзине. Она учитывает количество, применяемые скидки и т.д.",
+          "complexTypes": [
+            "ECommercePrice"
+          ],
+          "type": "ECommercePrice"
+        },
+        {
+          "name": "quantity",
+          "tags": [],
+          "docs": "Количество",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "referrer",
+          "tags": [],
+          "docs": "Источника перехода в корзину",
+          "complexTypes": [
+            "ECommerceReferrer"
+          ],
+          "type": "ECommerceReferrer"
+        }
+      ]
+    },
+    {
+      "name": "ECommerceOrder",
+      "slug": "ecommerceorder",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "identifier",
+          "tags": [],
+          "docs": "Идентификатор заказа. Допустимый размер: до 100 символов",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "cartItems",
+          "tags": [],
+          "docs": "Список товаров в корзине",
+          "complexTypes": [
+            "ECommerceCartItem"
+          ],
+          "type": "ECommerceCartItem[]"
+        },
+        {
+          "name": "payload",
+          "tags": [],
+          "docs": "Дополнительная информация о заказе.\n\nДопустимые размеры:\n- общий размер payload: до 20 КБ;\n- размер key: до 100 символов;\n- размер value: до 1000 символов.",
+          "complexTypes": [
+            "ECommercePayload"
+          ],
+          "type": "ECommercePayload"
+        }
+      ]
+    },
+    {
+      "name": "YAMUserProfileId",
+      "slug": "yamuserprofileid",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "YAMUserProfile",
+      "slug": "yamuserprofile",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "gender",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "YAMGenderType"
+          ],
+          "type": "YAMGenderType"
+        },
+        {
+          "name": "notificationEnabled",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "birthDate",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "YAMUserProfileBirthDate",
+            "YAMUserProfileAge"
+          ],
+          "type": "YAMUserProfileBirthDate | YAMUserProfileAge | undefined"
+        }
+      ]
+    },
+    {
+      "name": "YAMUserProfileBirthDate",
+      "slug": "yamuserprofilebirthdate",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "year",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "month",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "day",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        }
+      ]
+    },
+    {
+      "name": "YAMUserProfileAge",
+      "slug": "yamuserprofileage",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "age",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "ECommercePayload",
+      "slug": "ecommercepayload",
+      "docs": "",
+      "types": [
+        {
+          "text": "{ [key: string]: string; }",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "ECommerceAmount",
+      "slug": "ecommerceamount",
+      "docs": "",
+      "types": [
+        {
+          "text": "[number, string]",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "YAMGenderType",
+      "slug": "yamgendertype",
+      "docs": "",
+      "types": [
+        {
+          "text": "'male'",
+          "complexTypes": []
+        },
+        {
+          "text": "'female'",
+          "complexTypes": []
+        },
+        {
+          "text": "'other'",
+          "complexTypes": []
+        }
+      ]
+    }
+  ],
+  "pluginConfigs": []
+}
